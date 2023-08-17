@@ -1,20 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from 'react'
-import { useQuiz } from '../context/QuizContext'
 
-function Timer() {
-	const { dispatch, secondsRemaining } = useQuiz()
-
+function Timer({ dispatch, secondsRemaining }) {
 	const min = Math.floor(secondsRemaining / 60)
 	const seconds = secondsRemaining % 60
-
 	useEffect(() => {
 		const id = setInterval(() => {
 			dispatch({ type: 'tic' })
 		}, 1000)
 		return () => clearInterval(id)
 	}, [dispatch])
-
 	return (
 		<div className='timer'>
 			{min < 10 && '0'}

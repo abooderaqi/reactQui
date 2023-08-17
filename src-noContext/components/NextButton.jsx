@@ -1,12 +1,8 @@
-import { useQuiz } from '../context/QuizContext'
-
 /* eslint-disable react/prop-types */
-function NextButton() {
-	const { dispatch, answer, index, numOfQuestions } = useQuiz()
-
+function NextButton({ dispatch, answer, index, questionsNumber }) {
 	if (answer === null) return null
 
-	if (index < numOfQuestions - 1) {
+	if (index < questionsNumber - 1) {
 		console.log(index)
 		return (
 			<button
@@ -18,7 +14,7 @@ function NextButton() {
 		)
 	}
 
-	if (index === numOfQuestions - 1)
+	if (index === questionsNumber - 1)
 		return (
 			<button
 				className='btn btn-ui'

@@ -1,18 +1,13 @@
-import { useQuiz } from '../context/QuizContext'
-
 /* eslint-disable react/prop-types */
-function Options({ question }) {
-	const { dispatch, answer } = useQuiz()
-
+function Options({ options, dispatch, answer }) {
 	const hasAnswered = answer !== null
-
 	return (
 		<div className='options'>
-			{question.options.map((option, index) => (
+			{options.options.map((option, index) => (
 				<button
 					className={`btn btn-option ${index === answer ? 'answer' : ''} ${
 						hasAnswered
-							? index === question.correctOption
+							? index === options.correctOption
 								? 'correct'
 								: 'wrong'
 							: ''

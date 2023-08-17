@@ -1,13 +1,9 @@
-import { useQuiz } from '../context/QuizContext'
-
 /* eslint-disable react/prop-types */
-function StartScreen() {
-	const { numOfQuestions, dispatch } = useQuiz()
-
+function StartScreen({ questions, dispatch }) {
 	return (
 		<div className='start'>
 			<h2>Welcome to The React Quiz!</h2>
-			<h3>{numOfQuestions} questions to test your React mastry</h3>
+			<h3>{questions} questions to test your React mastry</h3>
 			<button
 				className='btn btn-ui'
 				onClick={() => dispatch({ type: 'start' })}
